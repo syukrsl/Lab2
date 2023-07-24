@@ -1,0 +1,66 @@
+* { /* universal selector */
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: white;
+    padding: 5px; 
+    height: 100vh; /*viewport height*/
+    margin: 0;
+    font: 500 100% system-ui, sans-serif;
+    text-transform: uppercase;
+  }
+  
+  .whole-page {
+    background: white;
+    height: calc(100vh - 10px);
+    box-shadow: 0 0 3px rgba(black, 0.33);
+    display: grid;
+    grid-template-columns: minmax(10px, 1fr) minmax(10px, 3fr);
+    grid-template-rows: min-content min-content 1fr min-content;
+    gap: 1px;
+  
+    > * {
+      padding: 1rem;
+      text-align: center;
+    }
+  
+    @media (max-width: 600px) {
+      grid-template-columns: 100%;
+      grid-template-rows: auto;
+      > * {
+        grid-column: 1 / -1 !important;
+        grid-row: auto !important;
+      }
+    }
+  }
+  
+  .headerPage {
+    grid-column: 1 / -1;
+    background: #53c68c;
+  }
+  
+  .sidebarPage {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+    background: #94b8b8;
+  }
+  .navPage {
+    grid-column: 2 / 3;
+    background: #94b8b8;
+    text-align: left;
+  }
+  .articlePage {
+    grid-column: 2 / 3;
+    background: #94b8b8;
+    text-align: left;
+  }
+  .footerPage {
+    grid-column: 1 / -1;
+    background: #c2d6d6;
+  }
+  
+  details p { /* insert article */
+    text-transform: none;
+    text-align: center;
+  }
